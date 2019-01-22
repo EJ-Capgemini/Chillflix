@@ -1,0 +1,46 @@
+<h1>Nieuwe video toevoegen</h1>
+<div class="col-md-6">
+  <form>
+    <div class="form-group">
+      <label class="control-label col-md-4" for="youtube">YouTube ID:</label>
+      <div class="col-md-8">
+        <input type="text" [(ngModel)]="youTubeId" name="youTubeId" class="form-control" placeholder="waarde van v in YT video">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-4" for="title">Titel:</label>
+      <div class="col-md-8">
+        <input type="text" class="form-control" id="video_title" placeholder="Titel">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-4" for="">Description:</label>
+      <div class="col-md-8">
+        <input type="text" class="form-control" id="video_description" placeholder="Omschrijving">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-4" for="">Thumbnail:</label>
+      <div class="col-md-8">
+        <input type="text" class="form-control" id="video_thumbnail" placeholder="Link naar voorbeeldafbeelding">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-4" for="">Tags:</label>
+      <div class="col-md-8">
+        <input type="text" class="form-control" id="video_tags" placeholder="Tags, gescheiden door komma's">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-4" for="">Duratie:</label>
+      <div class="col-md-8">
+        <input type="text" class="form-control" id="video_duration" placeholder="Hoelang de video duurt.">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="col-md-6">
+  <p>URL: https://www.youtube.com/embed/{{ youTubeId }}</p>
+  <button (click)="onVerify()">Controleer</button>
+  <div #iframe></div>      
+</div>
