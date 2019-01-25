@@ -1,4 +1,25 @@
-<p>
-  videos works!
-</p>
-<app-video></app-video>
+<div class="container">
+  <h1>Video's</h1>
+  <div class="form-group genre-group">
+    <label for="genre" class="genre-label">Genre</label>
+    <select [(ngModel)]="selectedGenre" (click)="filter()" class="form-control genre-select" name="genre">
+      <option *ngFor="let option of genreOptions">
+        {{ option.name }}
+      </option>
+    </select>
+  </div>
+
+  <ul class="list-unstyled video-list-thumbs row">
+    <li *ngFor="let video of filteredVideos" class="col-lg-3 col-sm-4 col-xs-6 videos-item">
+      <a (click)="showTrailer(video)" title="{{ video.title }}">
+        <img src="{{ video.thumbnail }}" alt="" class="img-responsive" height="" />
+        <span class="glyphicon glyphicon-play-circle"></span>
+        <span class="duration">{{ video.genre }}</span>
+      </a>
+      <p class="videos-title"><a href="video/{{ video.id }}">{{ video.title }}</a></p>
+    </li>
+  </ul>
+  <div *ngIf="selVideo">
+    <app-trailer (closedVideoEmitter)='closedTrailer($event)' [selVideo]="selVideo"></app-trailer>
+  </div>
+</div>

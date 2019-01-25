@@ -1,46 +1,70 @@
-<h1>Nieuwe video toevoegen</h1>
-<div class="col-md-6">
-  <form>
-    <div class="form-group">
-      <label class="control-label col-md-4" for="youtube">YouTube ID:</label>
-      <div class="col-md-8">
-        <input type="text" [(ngModel)]="youTubeId" name="youTubeId" class="form-control" placeholder="waarde van v in YT video">
-      </div>
+<div class="container">
+  <h1>Nieuwe video</h1>
+  <div class="container-fluid">
+    <div class="formBox">
+      <form [formGroup]="videoForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="inputBox ">
+              <div class="inputText">YouTube ID</div>
+              <input (focus)="onFocus($event)" (blur)="onVerifyYouTube()" type="text" formControlName="youtube_id" name="id" class="input">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="inputBox">
+              <div class="inputText">Titel</div>
+              <input (focus)="onFocus($event)" type="text" formControlName="video_title" name="title" class="input">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="inputBox ">
+              <div class="inputText">Omschrijving</div>
+              <input (focus)="onFocus($event)" type="text" formControlName="video_description" name="description"
+                class="input">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="inputBox">
+              <div class="inputText">Thumbnail</div>
+              <input (focus)="onFocus($event)" (blur)="onVerifyImage()" type="text" formControlName="video_thumbnail" name="thumbnail"
+                class="input">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="inputBox ">
+              <div class="inputText">Genre</div>
+              <input (focus)="onFocus($event)" type="text" formControlName="video_genre" name="genre" class="input">
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="inputBox">
+              <div class="inputText">Tijdsduur</div>
+              <input (focus)="onFocus($event)" type="text" formControlName="video_duration" name="duration"
+                class="input">
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Verstuur</button>
+      </form>
     </div>
-    <div class="form-group">
-      <label class="control-label col-md-4" for="title">Titel:</label>
-      <div class="col-md-8">
-        <input type="text" class="form-control" id="video_title" placeholder="Titel">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-md-4" for="">Description:</label>
-      <div class="col-md-8">
-        <input type="text" class="form-control" id="video_description" placeholder="Omschrijving">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-md-4" for="">Thumbnail:</label>
-      <div class="col-md-8">
-        <input type="text" class="form-control" id="video_thumbnail" placeholder="Link naar voorbeeldafbeelding">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-md-4" for="">Tags:</label>
-      <div class="col-md-8">
-        <input type="text" class="form-control" id="video_tags" placeholder="Tags, gescheiden door komma's">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-md-4" for="">Duratie:</label>
-      <div class="col-md-8">
-        <input type="text" class="form-control" id="video_duration" placeholder="Hoelang de video duurt.">
-      </div>
-    </div>
-  </form>
+  </div>
 </div>
-<div class="col-md-6">
-  <p>URL: https://www.youtube.com/embed/{{ youTubeId }}</p>
-  <button (click)="onVerify()">Controleer</button>
-  <div #iframe></div>      
+
+<div class="container">
+  <div>
+    <div class="trailer">
+      <div #iframe class="trailer-video">
+      </div>
+
+      <div #thumbnail class="trailer-image">
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,65 @@
-<!-- <p>test2 variable uit temp component inladen: {{ test2 }}</p>
+<!-- <div class="videoWrapper">
+    <iframe width="560" height="349" src="http://www.youtube.com/embed/P2gI1Cp3na4?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+</div> -->
 
-<app-temp></app-temp> -->
-<p>Hele interessante pagina.</p>
+<!-- <div id="scene">
+    <div data-depth="1.00"><img src="../../assets/images/background.jpg" class="pic1"></div>
+    <div data-depth="0.8"><img src="../../assets/images/board-birds.png" class="pic2"></div>
+    <div data-depth="0.6"><img src="../../assets/images/board-cloud-1.png" class="pic3"></div>
+    <div data-depth="0.4"><img src="../../assets/images/compass.png" class="pic4"></div>
+</div> -->
+
+<ul id="scene" class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15" style="width: 1536px; height: 723px; transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;">
+        <li class="layer" data-depth="0.00" style="position: relative; display: block; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"></li>
+        <li class="layer" data-depth="0.10" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-3.9px, -3.615px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="background"></div></li>
+        <li class="layer" data-depth="0.10" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-3.9px, -3.615px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="light orange b phase-4"></div></li>
+        <li class="layer" data-depth="0.10" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-3.9px, -3.615px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="light purple c phase-5"></div></li>
+        <li class="layer" data-depth="0.10" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-3.9px, -3.615px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="light orange d phase-3"></div></li>
+        <li class="layer" data-depth="0.15" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-5.85px, -5.4225px, 0px); transform-style: preserve-3d; backface-visibility: hidden;">
+            <ul class="rope depth-10">
+                <li><img src="assets/images/rope.png" alt="Rope"></li>
+                <li class="hanger position-2">
+                    <div class="board cloud-2 swing-1"></div>
+                </li>
+                <li class="hanger position-4">
+                    <div class="board cloud-1 swing-3"></div>
+                </li>
+                <li class="hanger position-8">
+                    <div class="board birds swing-5"></div>
+                </li>
+            </ul>
+        </li>
+        <li class="layer" data-depth="0.20" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-7.8px, -7.23px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><h1 class="title parallax-title">Chillflix</h1></li>
+        <li class="layer" data-depth="0.30" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-11.7px, -10.845px, 0px); transform-style: preserve-3d; backface-visibility: hidden;">
+            <ul class="rope depth-30">
+                <li><img src="assets/images/rope.png" alt="Rope"></li>
+                <li class="hanger position-1">
+                    <div class="board cloud-1 swing-3"></div>
+                </li>
+                <li class="hanger position-5">
+                    <div class="board cloud-4 swing-1"></div>
+                </li>
+            </ul>
+        </li>
+        <li class="layer" data-depth="0.30" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-11.7px, -10.845px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="wave paint depth-30"></div></li>
+        <li class="layer" data-depth="0.40" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-15.6px, -14.46px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="wave plain depth-40"></div></li>
+        <li class="layer" data-depth="0.50" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-19.5px, -18.075px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="wave paint depth-50"></div></li>
+        <li class="layer" data-depth="0.60" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-23.4px, -21.69px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="lighthouse depth-60"></div></li>
+        <li class="layer" data-depth="0.60" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-23.4px, -21.69px, 0px); transform-style: preserve-3d; backface-visibility: hidden;">
+            <ul class="rope depth-60">
+                <li><img src="assets/images/rope.png" alt="Rope"></li>
+                <li class="hanger position-3">
+                    <div class="board birds swing-5"></div>
+                </li>
+                <li class="hanger position-6">
+                    <div class="board cloud-2 swing-2"></div>
+                </li>
+                <li class="hanger position-8">
+                    <div class="board cloud-3 swing-4"></div>
+                </li>
+            </ul>
+        </li>
+        <li class="layer" data-depth="0.60" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-23.4px, -21.69px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="wave plain depth-60"></div></li>
+        <li class="layer" data-depth="0.80" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-31.2px, -28.92px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="wave plain depth-80"></div></li>
+        <li class="layer" data-depth="1.00" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(-39px, -36.15px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"><div class="wave paint depth-100"></div></li>
+    </ul>

@@ -1,4 +1,23 @@
-<div>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/IJXsgjKe9no?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
+<div class="container">
+  <div *ngIf="video; else notFound">
+    <div class="trailer">
+      <div class="trailer-video">
+        <iframe width="560" height="315" [src]="getYouTubeUrl()" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="trailer-info">
+        <div class="video-title">{{ video.title }}</div>
+        <div class="video-description">{{ video.description }}</div>
+        <div class="video-description">Genre: {{ video.genre }}</div>
+        <div class="video-description">Lengte: {{ video.duration }}</div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <p>
+      Video niet gevonden.
+    </p>
+  </ng-template>
 </div>

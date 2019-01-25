@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
+import { VideoService } from '../video.service';
+import { Film } from '../film';
 
 @Component({
   selector: 'app-temp',
@@ -13,9 +14,19 @@ export class TempComponent implements OnInit {
 
   list:Array<string> = [this.test, this.test2];
 
-  constructor() { }
+  films:Array<Film>;
+
+  constructor(private videoService:VideoService) { }
 
   ngOnInit() {
+    console.log("test");
+    // this.films = this.videoService.getAll2();
+
+    // this.videoService.getAll2().subscribe(data => this.films = data);
+    // console.log(this.videoService.getAll().subscribe(
+    //   (data: Array<Film>) => {
+    //     this.films = data;
+    //   }));
   }
 
   onAddToList(){

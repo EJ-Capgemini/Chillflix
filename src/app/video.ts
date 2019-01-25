@@ -3,7 +3,9 @@ export class Video {
     title: string;
     description: string;
     thumbnail: string; //de URL van 1e thumbnail
-    tags: Array<string>;
+    genre: string
     duration: string;
+    ratingValue: number;
+    ratingCount: number;
   }
   
