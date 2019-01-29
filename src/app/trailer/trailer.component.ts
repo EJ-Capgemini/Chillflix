@@ -11,9 +11,7 @@ import {
   DomSanitizer,
   SafeResourceUrl
 } from '@angular/platform-browser';
-import {
-  Video
-} from '../video';
+import { Video } from '../_models/video';
 
 @Component({
   selector: 'app-trailer',

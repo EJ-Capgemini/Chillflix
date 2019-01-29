@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VideoService } from '../video.service';
-import { Video } from '../video';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { Video } from '../_models/video';
 
 @Component({
   selector: 'app-video',

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { TempComponent } from './temp/temp.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideoComponent } from './video/video.component';
 import { VideosComponent } from './videos/videos.component';
@@ -16,11 +15,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { VideoService } from './video.service';
 import { TrailerComponent } from './trailer/trailer.component';
 import { FooterComponent } from './footer/footer.component';
-import { IntroComponent } from './intro/intro.component';
 import { ParallaxModule } from 'ngx-parallax';
 import { MatDialogModule } from '@angular/material';
 import { DialogComponent } from './dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from './auth.guard';
+import { ErrorComponent } from './error/error.component';
+import { AuthService } from './auth.service';
+import { UtilService } from './util.service';
 
 @NgModule({
   declarations: [
@@ -28,15 +30,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavComponent,
     HomeComponent,
     LoginComponent,
-    TempComponent,
     VideoComponent,
     VideosComponent,
     AddVideoComponent,
     SnowComponent,
     TrailerComponent,
     FooterComponent,
-    IntroComponent,
-    DialogComponent
+    DialogComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
   providers: [
-    VideoService
+    VideoService,
+    AuthService,
+    UtilService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponent]

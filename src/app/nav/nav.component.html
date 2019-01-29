@@ -8,8 +8,10 @@
       <li routerLinkActive="active"><a routerLink="/videos"><span class="glyphicon glyphicon-facetime-video"></span> Videos</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li routerLinkActive="active"><a routerLink="/nieuw"><span class="glyphicon glyphicon-plus"></span> Nieuw</a></li>
-      <!-- <li><a routerLink="#"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li> -->
+      <li *ngIf="user && user.userType === 'admin'" routerLinkActive="active"><a routerLink="/nieuw"><span class="glyphicon glyphicon-plus"></span> Nieuw</a></li>
+      <li *ngIf="!user" routerLinkActive="active"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
+      
+      <li *ngIf="user" routerLinkActive="active"><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> {{ user.username }} (Uitloggen)</a></li>
     </ul>
   </div>
 </nav>

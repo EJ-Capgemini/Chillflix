@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Film } from './film';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Video } from './video';
+import { Video } from './_models/video';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

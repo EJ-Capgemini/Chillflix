@@ -1,8 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { VideoService } from '../video.service';
-import { Video } from '../video';
-import { filter } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Video } from '../_models/video';
 
 @Component({
   selector: 'app-videos',

@@ -461,7 +461,7 @@ footer .twitter-share-button {
 
 .about .cables:before {
   left: 10%;
-  background: transparent url(../../assets/images/cable.png) 0 0 no-repeat;
+  // background: transparent url(../../assets/images/cable.png) 0 0 no-repeat;
   position: absolute;
   display: block;
   height: 860px;
@@ -469,11 +469,12 @@ footer .twitter-share-button {
   content: "";
   top: -837px;
   z-index: 1;
+  display: none;
 }
 
 .about .cables:after {
   right: 10%;
-  background: transparent url(../../assets/images/cable.png) 0 0 no-repeat;
+  // background: transparent url(../../assets/images/cable.png) 0 0 no-repeat;
   position: absolute;
   display: block;
   height: 860px;
@@ -481,13 +482,14 @@ footer .twitter-share-button {
   content: "";
   top: -837px;
   z-index: 1;
+  display: none;
 }
 
 .about .panel {
   -webkit-transform-origin: 50% 0%;
   -moz-transform-origin: 50% 0%;
   transform-origin: 50% 0%;
-  background: #F2F2F2 url(../../assets/images/panel.jpg) -7px 0;
+  // background: #F2F2F2 url(../../assets/images/panel.jpg) -7px 0;
   background-size: 399px 357px;
 }
 
@@ -508,7 +510,7 @@ footer .twitter-share-button {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
-  background: transparent url(../../assets/images/compass.png) 0 0 no-repeat;
+  // background: transparent url(../../assets/images/compass.png) 0 0 no-repeat;
   background-size: 224px 224px;
   position: absolute;
   display: block;
@@ -518,6 +520,7 @@ footer .twitter-share-button {
   content: "";
   bottom: 0;
   right: 0;
+  display: none;
 }
 
 .about .panel header {
@@ -531,7 +534,7 @@ footer .twitter-share-button {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
-  background: transparent url(../../assets/images/map.png) 0 0 no-repeat;
+  // background: transparent url(../../assets/images/map.png) 0 0 no-repeat;
   background-size: 60.5px 82.5px;
   position: absolute;
   display: block;
@@ -541,6 +544,7 @@ footer .twitter-share-button {
   content: "";
   left: 0;
   top: 0;
+  display: none;
 }
 
 .about .panel h1 {
@@ -853,7 +857,7 @@ footer .twitter-share-button {
 }
 
 .background {
-  background: url(../../assets/images/background.jpg) no-repeat 50% 100%;
+  background: url(../../assets/images/background-2.jpg) no-repeat 50% 100%;
   bottom: 96px;
   background-size: cover;
   position: absolute;
@@ -873,7 +877,7 @@ footer .twitter-share-button {
   background-size: 128px 224px;
   height: 224px;
   width: 128px;
-  background-image: url(../../assets/images/lighthouse.png);
+  background-image: url(../../assets/images/movies-1.png);
   background-repeat: no-repeat;
   bottom: 64px;
   position: absolute;
@@ -900,10 +904,12 @@ footer .twitter-share-button {
 
 .wave.plain {
   background-image: url(../../assets/images/wave-plain.png);
+  // background-image: url(../../assets/images/row-2.png);
 }
 
 .wave.paint {
   background-image: url(../../assets/images/wave-paint.png);
+  // background-image: url(../../assets/images/row-2.png);
 }
 
 .light {
@@ -1087,28 +1093,28 @@ footer .twitter-share-button {
   width: 280px;
   background-repeat: no-repeat;
   position: absolute;
-  top: -4px;
+  top: 250px;//-4px;
   left: 0;
 }
 
 .board.birds {
-  background-image: url(../../assets/images/board-birds.png);
+  background-image: url(../../assets/images/goku-1.png);
 }
 
 .board.cloud-1 {
-  background-image: url(../../assets/images/board-cloud-1.png);
+  background-image: url(../../assets/images/superman-1.png);
 }
 
 .board.cloud-2 {
-  background-image: url(../../assets/images/board-cloud-2.png);
+  background-image: url(../../assets/images/pikachu-1.png);
 }
 
 .board.cloud-3 {
-  background-image: url(../../assets/images/board-cloud-3.png);
+  background-image: url(../../assets/images/spiderman-1.png);
 }
 
 .board.cloud-4 {
-  background-image: url(../../assets/images/board-cloud-4.png);
+  background-image: url(../../assets/images/iron-man-1.png);
 }
 
 .swing-1 {
@@ -1652,11 +1658,17 @@ footer .twitter-share-button {
   }
 
   .lighthouse {
-    margin: 0px -96px;
-    background-size: 192px 336px;
-    height: 336px;
-    width: 192px;
-    bottom: 128px;
+    // margin: 0px -96px;
+    // background-size: 192px 336px;
+    // height: 336px;
+    // width: 192px;
+    // bottom: 128px;
+    // margin: 0px -130px;
+    // background-size: 260px 260px;
+    // height: 260px;
+    // width: 260px;
+    // bottom: 128px;
+    display: none;
   }
 
   .light {
@@ -2944,7 +2956,17 @@ html.touch .links a.tap {
 
 .parallax-title {
     text-align: center;
-    font-size: 50px !important;
+    font-size: 150px !important;
+}
+
+h1.parallax-title-logged-in {
+  text-align: center;
+  font-size: 65px !important;
+  margin-top: -275px;
+}
+
+.hide-this {
+  display: none;
 }
 
 @media (max-width: 767px) {

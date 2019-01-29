@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { UtilService } from '../util.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthService, private utilService:UtilService, private router:Router) { }
+
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  });
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    if(this.authService.login(this.loginForm.get('username').value, this.loginForm.get('password').value)){
+      this.utilService.openDialog("Je bent nu ingelogd!");
+      this.router.navigate(['/videos']);
+    } else {
+      this.utilService.openDialog("Combinatie van gebruikersnaam en wachtwoord zijn incorrect.");
+    }
+  }
+
+  onFocus(event){
+    event.target.classList.add('has-val');
   }
 
 }

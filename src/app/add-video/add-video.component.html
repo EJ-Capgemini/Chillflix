@@ -7,13 +7,21 @@
           <div class="col-sm-6">
             <div class="inputBox ">
               <div class="inputText">YouTube ID</div>
-              <input (focus)="onFocus($event)" (blur)="onVerifyYouTube()" type="text" formControlName="youtube_id" name="id" class="input">
+              <input (focus)="onFocus($event)" (blur)="onVerifyYouTube()" type="text" formControlName="youtube_id" name="id"
+                class="input" [ngClass]="{ 'is-invalid': submitted && f.youtube_id.errors }" />
+              <div *ngIf="submitted && f.youtube_id.errors" class="invalid-feedback">
+                <div *ngIf="f.youtube_id.errors.required">Youtube ID is verplicht!</div>
+              </div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="inputBox">
               <div class="inputText">Titel</div>
-              <input (focus)="onFocus($event)" type="text" formControlName="video_title" name="title" class="input">
+              <input (focus)="onFocus($event)" type="text" formControlName="video_title" name="title" class="input" 
+              [ngClass]="{ 'is-invalid': submitted && f.video_title.errors }" />
+              <div *ngIf="submitted && f.video_title.errors" class="invalid-feedback">
+                <div *ngIf="f.video_title.errors.required">Titel is verplicht!</div>
+              </div>
             </div>
           </div>
         </div>
@@ -21,8 +29,11 @@
           <div class="col-sm-12">
             <div class="inputBox ">
               <div class="inputText">Omschrijving</div>
-              <input (focus)="onFocus($event)" type="text" formControlName="video_description" name="description"
-                class="input">
+              <input (focus)="onFocus($event)" type="text" formControlName="video_description" name="description" class="input"                 
+              [ngClass]="{ 'is-invalid': submitted && f.video_description.errors }" />
+              <div *ngIf="submitted && f.video_description.errors" class="invalid-feedback">
+                <div *ngIf="f.video_description.errors.required">Beschrijving is verplicht!</div>
+              </div>
             </div>
           </div>
         </div>
@@ -30,8 +41,15 @@
           <div class="col-sm-12">
             <div class="inputBox">
               <div class="inputText">Thumbnail</div>
-              <input (focus)="onFocus($event)" (blur)="onVerifyImage()" type="text" formControlName="video_thumbnail" name="thumbnail"
-                class="input">
+              <input (focus)="onFocus($event)" (blur)="onVerifyImage()" type="text" formControlName="video_thumbnail"
+                name="thumbnail" class="input" [ngClass]="{ 'is-invalid': submitted && f.video_thumbnail.errors }" />
+                <div *ngIf="submitted && f.video_thumbnail.errors" class="invalid-feedback">
+                  <div *ngIf="f.video_thumbnail.errors.required; else elseif">Thumbnail is verplicht!</div>
+                  <ng-template #elseif>
+                    <!-- <div>HIER KOMT IE NIET!!</div>>  -->
+                    <div *ngIf="f.video_thumbnail.errors.pattern; else elseif">Thumbnail moet een .jpg, .png of .jpeg zijn!</div>
+                  </ng-template>
+                </div>
             </div>
           </div>
         </div>
@@ -39,15 +57,22 @@
           <div class="col-sm-6">
             <div class="inputBox ">
               <div class="inputText">Genre</div>
-              <input (focus)="onFocus($event)" type="text" formControlName="video_genre" name="genre" class="input">
+              <input (focus)="onFocus($event)" type="text" formControlName="video_genre" name="genre" class="input" 
+              [ngClass]="{ 'is-invalid': submitted && f.video_genre.errors }" />
+              <div *ngIf="submitted && f.video_genre.errors" class="invalid-feedback">
+                <div *ngIf="f.video_genre.errors.required">Genre is verplicht!</div>
+              </div>
             </div>
           </div>
 
           <div class="col-sm-6">
             <div class="inputBox">
               <div class="inputText">Tijdsduur</div>
-              <input (focus)="onFocus($event)" type="text" formControlName="video_duration" name="duration"
-                class="input">
+              <input (focus)="onFocus($event)" type="text" formControlName="video_duration" name="duration" class="input" 
+              [ngClass]="{ 'is-invalid': submitted && f.video_duration.errors }" />
+              <div *ngIf="submitted && f.video_duration.errors" class="invalid-feedback">
+                <div *ngIf="f.video_duration.errors.required">Tijdsduur is verplicht!</div>
+              </div>
             </div>
           </div>
         </div>

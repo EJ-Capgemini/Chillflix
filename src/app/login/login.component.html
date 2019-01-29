@@ -1,3 +1,22 @@
-<p>
-  login works!
-</p>
+<div class="container-login100">
+  <div class="wrap-login100 p-t-85 p-b-20">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login100-form validate-form">
+      <span class="login100-form-title p-b-70">
+        <h1>Inloggen</h1>
+      </span>
+      <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Gebruikersnaam">
+        <input class="input100" type="text" name="username" (focus)="onFocus($event)" formControlName="username">
+        <span class="focus-input100" data-placeholder="Gebruikersnaam"></span>
+      </div>
+      <div class="wrap-input100 validate-input m-b-50" data-validate="Wachtwoord">
+        <input class="input100" type="password" name="pass" (focus)="onFocus($event)" formControlName="password">
+        <span class="focus-input100" data-placeholder="Wachtwoord"></span>
+      </div>
+      <div class="container-login100-form-btn">
+        <button type="submit" class="login100-form-btn">
+          Inloggen
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

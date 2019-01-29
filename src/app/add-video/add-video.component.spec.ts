@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddVideoComponent } from './add-video.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('AddVideoComponent', () => {
   let component: AddVideoComponent;
@@ -8,6 +11,9 @@ describe('AddVideoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule, MatDialogModule, ReactiveFormsModule, FormsModule
+      ],
       declarations: [ AddVideoComponent ]
     })
     .compileComponents();

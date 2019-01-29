@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Parallax from 'parallax-js';
+import { AuthService } from '../auth.service';
+import { User } from '../_models/user';
 
 declare var Parallax: any;
 // const Parallax = require('parallax-js');
@@ -11,9 +13,12 @@ declare var Parallax: any;
 })
 export class HomeComponent implements OnInit {
   
-  constructor() { }
+  user:User;
+
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
+    this.authService.currentUser.subscribe(value => this.user = value);
   }
 
   ngAfterContentInit() {
@@ -22,7 +27,6 @@ export class HomeComponent implements OnInit {
       relativeInput: true,
       hoverOnly: true
     });
-    console.log("test");
   }
 
 }
