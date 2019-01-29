@@ -23,6 +23,7 @@ import { AuthGuard } from './auth.guard';
 import { ErrorComponent } from './error/error.component';
 import { AuthService } from './auth.service';
 import { UtilService } from './util.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { UtilService } from './util.service';
     ReactiveFormsModule,
     ParallaxModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule
   ],
   providers: [
     VideoService,

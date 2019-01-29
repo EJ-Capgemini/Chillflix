@@ -8,6 +8,7 @@ import { VideoComponent } from './video/video.component';
 import { TrailerComponent } from './trailer/trailer.component';
 import { AuthGuard } from './auth.guard';
 import { ErrorComponent } from './error/error.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

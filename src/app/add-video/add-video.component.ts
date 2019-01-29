@@ -65,7 +65,7 @@ export class AddVideoComponent implements OnInit {
       this.video.genre = this.videoForm.get('video_genre').value;
       this.video.duration = this.videoForm.get('video_duration').value;
 
-      // this.videoService.addVideo(this.video); //Werkt, maar wil db niet vullen met onzin.
+      this.videoService.addVideo(this.video); //Werkt, maar wil db niet vullen met onzin.
       this.utilService.openDialog("Video is succesvol toegevoegd!");      
     } else {
       return;

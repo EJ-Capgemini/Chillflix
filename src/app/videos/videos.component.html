@@ -9,7 +9,7 @@
     </select>
   </div>
 
-  <ul class="list-unstyled video-list-thumbs row">
+  <!-- <ul class="list-unstyled video-list-thumbs row">
     <li *ngFor="let video of filteredVideos" class="col-lg-3 col-sm-4 col-xs-6 videos-item">
       <a (click)="showTrailer(video)" title="{{ video.title }}">
         <img src="{{ video.thumbnail }}" alt="" class="img-responsive" height="" />
@@ -21,5 +21,59 @@
   </ul>
   <div *ngIf="selVideo">
     <app-trailer (closedVideoEmitter)='closedTrailer($event)' [selVideo]="selVideo"></app-trailer>
+  </div> -->
+
+  <!-- <ul *ngFor="let x of rowRange" class="list-unstyled video-list-thumbs row">
+    <li *ngFor="let video of getCurRowVideos(x)" class="col-lg-3 col-sm-4 col-xs-6 videos-item">
+      <a (click)="showTrailer(video)" title="{{ video.title }}">
+        <img src="{{ video.thumbnail }}" alt="" class="img-responsive" height="" />
+        <span class="glyphicon glyphicon-play-circle"></span>
+        <span class="duration">{{ video.genre }}</span>
+      </a>
+      <p class="videos-title"><a href="video/{{ video.id }}">{{ video.title }}</a></p>
+    </li>
+  </ul> -->
+
+  <ul *ngIf="firstRow" class="list-unstyled video-list-thumbs row">
+    <li *ngFor="let video of firstRow" class="col-lg-3 col-sm-4 col-xs-6 videos-item">
+      <a (click)="showTrailer(video)" title="{{ video.title }}">
+        <img src="{{ video.thumbnail }}" alt="" class="img-responsive" height="" />
+        <span class="glyphicon glyphicon-play-circle"></span>
+        <span class="duration">{{ video.genre }}</span>
+      </a>
+      <p class="videos-title"><a href="video/{{ video.id }}">{{ video.title }}</a></p>
+    </li>
+  </ul>
+  <div *ngIf="selVideo && selVideo.row == 0">
+    <app-trailer (closedVideoEmitter)='closedTrailer($event)' [selVideo]="selVideo"></app-trailer>
   </div>
+
+  <ul *ngIf="secondRow" class="list-unstyled video-list-thumbs row">
+    <li *ngFor="let video of secondRow" class="col-lg-3 col-sm-4 col-xs-6 videos-item">
+      <a (click)="showTrailer(video)" title="{{ video.title }}">
+        <img src="{{ video.thumbnail }}" alt="" class="img-responsive" height="" />
+        <span class="glyphicon glyphicon-play-circle"></span>
+        <span class="duration">{{ video.genre }}</span>
+      </a>
+      <p class="videos-title"><a href="video/{{ video.id }}">{{ video.title }}</a></p>
+    </li>
+  </ul>
+  <div *ngIf="selVideo && selVideo.row == 1">
+    <app-trailer (closedVideoEmitter)='closedTrailer($event)' [selVideo]="selVideo"></app-trailer>
+  </div>
+
+  <ul *ngIf="thirdRow" class="list-unstyled video-list-thumbs row">
+    <li *ngFor="let video of thirdRow" class="col-lg-3 col-sm-4 col-xs-6 videos-item">
+      <a (click)="showTrailer(video)" title="{{ video.title }}">
+        <img src="{{ video.thumbnail }}" alt="" class="img-responsive" height="" />
+        <span class="glyphicon glyphicon-play-circle"></span>
+        <span class="duration">{{ video.genre }}</span>
+      </a>
+      <p class="videos-title"><a href="video/{{ video.id }}">{{ video.title }}</a></p>
+    </li>
+  </ul>
+  <div *ngIf="selVideo && selVideo.row == 2">
+    <app-trailer (closedVideoEmitter)='closedTrailer($event)' [selVideo]="selVideo"></app-trailer>
+  </div>
+
 </div>

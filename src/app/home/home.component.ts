@@ -3,9 +3,6 @@ import * as Parallax from 'parallax-js';
 import { AuthService } from '../auth.service';
 import { User } from '../_models/user';
 
-declare var Parallax: any;
-// const Parallax = require('parallax-js');
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,6 +11,7 @@ declare var Parallax: any;
 export class HomeComponent implements OnInit {
   
   user:User;
+  parallax:any;
 
   constructor(private authService:AuthService) { }
 
@@ -23,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngAfterContentInit() {
     const scene = document.getElementById('scene');
-    const parallaxInstance = new Parallax(scene, {
+    this.parallax = new Parallax(scene, {
       relativeInput: true,
       hoverOnly: true
     });

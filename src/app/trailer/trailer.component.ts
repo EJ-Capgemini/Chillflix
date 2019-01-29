@@ -45,7 +45,7 @@ export class TrailerComponent implements OnInit {
     console.log("init trailer");
     this.trailer.nativeElement.scrollIntoView({
       behavior: "smooth",
-      block: "start"
+      block: "end"
     });
   }
 
@@ -55,6 +55,15 @@ export class TrailerComponent implements OnInit {
 
   closeTrailer() {
     this.closedVideoEmitter.emit(this.newVideoId);
+  }
+
+  scrollIntoView(element) {
+    const elementRect = element.getBoundingClientRect();
+    const absoluteElementTop = elementRect.top;
+    const middleDiff = (elementRect.height / 2);
+    const scrollTopOfElement = absoluteElementTop + middleDiff;
+    const scrollY = scrollTopOfElement - (window.innerHeight / 2);
+    window.scrollTo(0, scrollY);
   }
 
 }

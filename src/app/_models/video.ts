@@ -5,7 +5,6 @@ export class Video {
     thumbnail: string; //de URL van 1e thumbnail
     genre: string
     duration: string;
-    ratingValue: number;
-    ratingCount: number;
+    row: number;
   }
   
