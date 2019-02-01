@@ -24,6 +24,11 @@ import { ErrorComponent } from './error/error.component';
 import { AuthService } from './auth.service';
 import { UtilService } from './util.service';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { rootReducer } from './_store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { VideoEffects } from './_store/video/video.effects';
+import { IAppState } from './_store/app-state.interface';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,9 @@ import { RouterModule } from '@angular/router';
     ParallaxModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    StoreModule.forRoot<IAppState>(rootReducer),
+    EffectsModule.forRoot([VideoEffects]),
   ],
   providers: [
     VideoService,

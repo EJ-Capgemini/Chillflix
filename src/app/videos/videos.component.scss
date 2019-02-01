@@ -7,7 +7,7 @@
 .video-list-thumbs>li>a {
   display: block;
   position: relative;
-  background-color: #111;
+  background-color: #f39200;
   color: #fff;
   padding: 8px;
   border-radius: 3px;
@@ -78,6 +78,7 @@
 
 li.videos-item {
   width: auto !important;
+  cursor: pointer;
 }
 
 p.videos-title {

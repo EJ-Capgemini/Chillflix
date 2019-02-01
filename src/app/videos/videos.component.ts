@@ -1,6 +1,11 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { VideoService } from '../video.service';
 import { Video } from '../_models/video';
+import { IAppState } from '../_store/app-state.interface';
+import { Store, select } from '@ngrx/store';
+import { fromEvent, Observable } from 'rxjs';
+import * as fromVideo from '../_store/video/video.action';
+import { IVideo } from '../_store/video/video.interface';
 
 @Component({
   selector: 'app-videos',
@@ -10,6 +15,7 @@ import { Video } from '../_models/video';
 export class VideosComponent implements OnInit {
   
   videos:Array<Video>;
+  videos$:Observable<IVideo>;
   filteredVideos:Array<Video>;
   selVideo:Video;
 
@@ -18,6 +24,7 @@ export class VideosComponent implements OnInit {
   remainingToDisplay:number;
 
   //Hardcoded rows, omdat er geen functie aangeroepen kan worden in een html loop. Betere oplossing?
+  //Array met arrays?
   firstRow:Array<Video>;
   secondRow:Array<Video>;
   thirdRow:Array<Video>;
@@ -31,29 +38,39 @@ export class VideosComponent implements OnInit {
     { name: "Action", value: "Action" },
     { name: "Sci-Fi", value: "Sci-Fi" },
     { name: "Thriller", value: "Thriller" },
-    { name: "Comedy", value: "Comedy" }
+    { name: "Comedy", value: "Comedy" },
+    { name: "Documentary", value: "Documentary" },
+    { name: "Crime", value: "Crime" }
   ];
 
   selectedGenre: string = this.genreOptions[0]["name"];;
 
   @ViewChild('genre') genre: ElementRef;
 
-  constructor(private videoService: VideoService) { }
+  constructor(private store: Store<IAppState>) { }
 
   ngOnInit() {
     this.loadVideos();
   }
 
   loadVideos(){
-    this.videoService.getVideos().subscribe((data: Video[])=> {
-      this.videos = data;
+    // this.videoService.getVideos().subscribe((data: Video[])=> {
+    //   this.videos = data;
+    //   this.filteredVideos = this.videos;
+    //   // this.remainingToDisplay = this.filteredVideos.length;
+    //   // this.setRowRange();
+    //   // this.updateRows();
+    //   this.assignRows();
+    // });
+
+    this.store.dispatch(new fromVideo.Load());
+    this.videos$ = this.store.pipe(select<IAppState>((s: { videos: any; }) => s.videos)); // s(IAppState) -> unexpected end of input
+    this.videos$.subscribe(videos => {
+      this.videos = videos.items;
       this.filteredVideos = this.videos;
-      // this.remainingToDisplay = this.filteredVideos.length;
-      // this.setRowRange();
-      // this.updateRows();
       this.assignRows();
     });
-  }
+  } 
 
   showTrailer(selVideo:Video){
     this.selVideo = selVideo;
@@ -72,7 +89,7 @@ export class VideosComponent implements OnInit {
       this.filteredVideos = this.videos.filter(
         video => video.genre.indexOf(this.selectedGenre) >= 0);
     }
-    this.updateRows();
+    this.assignRows();;
   }
 
     //Aantal rijen (op basis van aantal video's (na filteren)) op slaan in een lijst voor gebruik in html.

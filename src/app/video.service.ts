@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 import { Video } from './_models/video';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -10,7 +11,9 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class VideoService {
 
-  private videosUrl = 'http://localhost:8080/api/video';
+  private readonly videosUrl = 'http://localhost:8080/api/video';
+  private readonly delay = 1000;
+
   video:Video;
 
   constructor(private http: HttpClient) { }
@@ -18,7 +21,7 @@ export class VideoService {
   getVideos(){
     const url = `${this.videosUrl}/all`;
     return this.http.get<Video[]>(url).pipe(
-      map(response => response));
+      map(response => response));      
   }
 
   getVideo(id:string){
@@ -26,33 +29,12 @@ export class VideoService {
     return this.http.get<Video>(url).pipe(map(response => response));
   }
 
-  getVideoDoesNotWork(id:string){
-    const url = `${this.videosUrl}/get/${id}`;
-
-    this.http.get<Video>(url).subscribe(data => {
-      return data;      
-    }, error => {
-      return error;
-    });
-  }
-
-  addVideo(video:Video){
+  addVideo(video:Video): Observable<Video>{
     const url = `${this.videosUrl}/add`;
     console.log("url: " + url);
     console.log("title:" + video.title)
     console.log(video);
 
-    this.http.post(url, video).subscribe();//subscribe is noodzakelijk, anders wordt het niet eens uitgevoerd.
+    return this.http.post<Video>(url, video).pipe(delay(this.delay));
   }
-
-  /* Voorbeelden */
-  // getAll(): Observable<Array<Film>>{
-  //   return this.http.get("https://swapi.co/api/films/").pipe(
-  //     map(response => response['results']));
-  // }
-
-  // public getAll2() {
-  //   return this.http.get<Film[]>("https://swapi.co/api/films/").pipe(
-  //     map(response => response['results']));
-  // }
 }

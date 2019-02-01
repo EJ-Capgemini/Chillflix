@@ -416,7 +416,7 @@ footer .twitter-share-button {
 .about:after {
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
   position: absolute;
   display: block;
   width: 100%;
@@ -2967,6 +2967,10 @@ h1.parallax-title-logged-in {
 
 .hide-this {
   display: none;
+}
+
+ul#scene {
+  max-width: 100% !important;
 }
 
 @media (max-width: 767px) {

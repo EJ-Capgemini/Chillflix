@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       this.utilService.openDialog("Je bent nu ingelogd!");
       this.router.navigate(['/videos']);
     } else {
-      this.utilService.openDialog("Combinatie van gebruikersnaam en wachtwoord zijn incorrect.");
+      this.utilService.openDialog("Combinatie van gebruikersnaam en wachtwoord is incorrect.");
     }
   }
 
